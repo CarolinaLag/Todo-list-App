@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link href="main.css" rel="stylesheet" />
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Todo List</h1>
+    </header>
+    <!-- <button type="button" id="restoreBtn">Restore</button> -->
+    <form id="todoForm">
+      <input id="todoInput" type="text" />
+      <button type="button" id="button">
+        <i class="fas fa-plus-circle"></i>
+      </button>
+    </form>
+
+    <div class="todo-container">
+      <h2>Att göra</h2>
+      <ul id="toDoList"></ul>
+      <h2>Avklarat</h2>
+      <ul id="restoreList"></ul>
+    </div>
+
+    <!-- <form>
+      <input type="text" class="todo-input"  />
+      <button class="todo-button"  type="text">Add Todo</button>
+
+      <div class="select">
+        <select name="todos" class="filter-todo">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">uncompleted</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="todo-container">
+      <ul class="todo-list"></ul>
+    </div> -->
+  </body>
+</html>
