@@ -1,3 +1,5 @@
+@import "./variables/variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -13,50 +15,69 @@ body {
 header {
   font-size: 30px;
   min-height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   h1 {
     padding: 10px;
+    color: white;
   }
 }
 
 form {
   min-height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   #todoInput {
     padding: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
     border: none;
-    background: rgb(230, 228, 228);
+    background: white;
+    @include desktop {
+      font-size: 2rem;
+    }
   }
 
   #button {
-    padding: 0.5rem;
-    font-size: 2rem;
-    border: none;
-    cursor: pointer;
+    @include addSortbuttons;
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+  .fa-plus-circle {
+    pointer-events: none;
   }
 }
 
 .todo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   flex-direction: column;
+  h2 {
+    color: white;
+    margin: 10px;
+  }
   #toDoList {
     min-width: 30%;
     list-style: none;
-    background: rgb(179, 136, 214);
+    background: rgb(194, 172, 211);
     padding: 30px;
-    margin: 15px;
+    margin: 20px;
+    border-radius: 2%;
+  }
+
+  #sortBtn {
+    @include addSortbuttons;
+    font-size: 2rem;
+  }
+
+  .fa-sort-alpha-down {
+    pointer-events: none;
   }
 
   #restoreList {
     min-width: 30%;
     list-style: none;
+    background: rgb(194, 172, 211);
+    padding: 30px;
+    margin: 20px;
+    border-radius: 2%;
   }
   .todo {
     margin: 0.5rem;
@@ -72,23 +93,17 @@ form {
   }
   li {
     flex: 1;
-    background: rgb(230, 228, 228);
+    background: white;
     padding: 20px;
   }
   .completeBtn {
-    border: none;
-    padding: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
+    @include checkDeleteButtons;
   }
   .fa-check {
     pointer-events: none;
   }
   .trashBtn {
-    border: none;
-    padding: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
+    @include checkDeleteButtons;
   }
   .fa-trash {
     pointer-events: none;
