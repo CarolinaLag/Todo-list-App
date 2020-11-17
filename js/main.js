@@ -18,7 +18,7 @@ window.onload = function () {
   document.getElementById("button").addEventListener("click", addTodo);
   createHTML();
   createRestoreList();
-  //getFromLocalStorage();
+  // getFromLocalStorage();
 };
 
 function addTodo() {
@@ -26,7 +26,8 @@ function addTodo() {
   let newTodo = new Todo(todoInput);
 
   todos.push(newTodo);
-  addToLocalStorage(todos);
+  // addToLocalStorage(todos);
+  // addToLocalStorage(doneTodos);
 
   //   todoInput.value = "";
   document.getElementById("todoInput").value = "";
@@ -90,7 +91,8 @@ function deleteDoneTodo(todo) {
       doneTodos.splice(i, 1);
     }
     createRestoreList();
-    // addToLocalStorage(todos);
+
+    // addToLocalStorage(doneTodos);
   }
 }
 
@@ -110,6 +112,7 @@ function doneTodo(todo) {
   createHTML();
   createRestoreList();
   // addToLocalStorage(todos);
+  // addToLocalStorage(doneTodos);
 }
 
 function doneToNotDone(todo) {
@@ -121,6 +124,7 @@ function doneToNotDone(todo) {
       createHTML();
       createRestoreList();
       // addToLocalStorage(todos);
+      // addToLocalStorage(doneTodos);
     }
   }
 }
@@ -181,15 +185,22 @@ function sortTodos() {
   createHTML();
 }
 
-function addToLocalStorage(todos) {
-  localStorage.setItem("todos", JSON.stringify(todos));
-  createHTML(todos);
-}
+// function addToLocalStorage(todos) {
+//   localStorage.setItem("todos", JSON.stringify(todos));
+//   // localStorage.setItem("doneTodos", JSON.stringify(doneTodos));
+//   createHTML(todos);
+//   // createRestoreList(doneTodos);
+// }
 
-function getFromLocalStorage() {
-  let todoFromLS = localStorage.getItem("todos");
-  if (todoFromLS) {
-    todos = JSON.parse(todoFromLS);
-    createHTML(todos);
-  }
-}
+// function getFromLocalStorage() {
+//   let todoFromLS = localStorage.getItem("todos");
+//   // let doneTodoFromLS = localStorage.getItem("doneTodos");
+//   if (todoFromLS) {
+//     todos = JSON.parse(todoFromLS);
+//     createHTML(todos);
+//   }
+//   // if (doneTodoFromLS) {
+//   //   doneTodos = JSON.parse(doneTodoFromLS);
+//   //   createHTML(doneTodos);
+//   // }
+// }

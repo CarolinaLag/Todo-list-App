@@ -6,7 +6,8 @@
 body {
   background-color: #c2b6e0;
   background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
-  min-height: 100vh; }
+  min-height: 100vh;
+  font-family: "Crimson Text", serif; }
 
 header {
   font-size: 30px;
@@ -19,21 +20,22 @@ header {
     color: white; }
 
 form {
-  min-height: 20vh;
+  min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center; }
   form #todoInput {
-    padding: 0.5rem;
+    padding: 1.2rem;
     font-size: 1.2rem;
     border: none;
     background: white; }
     @media screen and (min-width: 1024px) {
       form #todoInput {
-        font-size: 2rem; } }
+        font-size: 1.7rem;
+        padding: 1rem; } }
   form #button {
-    padding: 0.5rem;
-    font-size: 1.2rem;
+    padding: 0.9rem;
+    font-size: 1.7rem;
     border: none;
     cursor: pointer;
     background: #b2aaf1;
@@ -42,7 +44,7 @@ form {
       background: #bfbbe9; }
     @media screen and (min-width: 1024px) {
       form #button {
-        font-size: 2rem; } }
+        font-size: 1.9rem; } }
   form .fa-plus-circle {
     pointer-events: none; }
 
@@ -62,8 +64,8 @@ form {
     margin: 20px;
     border-radius: 2%; }
   .todo-container #sortBtn {
-    padding: 0.5rem;
-    font-size: 1.2rem;
+    padding: 0.9rem;
+    font-size: 1.7rem;
     border: none;
     cursor: pointer;
     background: #b2aaf1;
@@ -92,15 +94,14 @@ form {
     padding: 0.7rem; }
   .todo-container li {
     flex: 1;
-    background: white;
-    padding: 20px; }
+    background: white; }
   .todo-container .completeBtn {
     border: none;
     padding: 1rem;
-    font-size: 1rem;
     cursor: pointer;
     background: #b2aaf1;
-    color: white; }
+    color: white;
+    font-size: 1.3rem; }
     .todo-container .completeBtn:hover {
       background: #bfbbe9; }
   .todo-container .fa-check {
@@ -108,10 +109,10 @@ form {
   .todo-container .trashBtn {
     border: none;
     padding: 1rem;
-    font-size: 1rem;
     cursor: pointer;
     background: #b2aaf1;
-    color: white; }
+    color: white;
+    font-size: 1.3rem; }
     .todo-container .trashBtn:hover {
       background: #bfbbe9; }
   .todo-container .fa-trash {

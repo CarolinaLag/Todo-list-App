@@ -10,6 +10,7 @@ body {
   background-color: #c2b6e0;
   background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
   min-height: 100vh;
+  font-family: "Crimson Text", serif;
 }
 
 header {
@@ -23,22 +24,23 @@ header {
 }
 
 form {
-  min-height: 20vh;
+  min-height: 10vh;
   @include flexCenter;
   #todoInput {
-    padding: 0.5rem;
+    padding: 1.2rem;
     font-size: 1.2rem;
     border: none;
     background: white;
     @include desktop {
-      font-size: 2rem;
+      font-size: 1.7rem;
+      padding: 1rem;
     }
   }
 
   #button {
     @include addSortbuttons;
     @include desktop {
-      font-size: 2rem;
+      font-size: 1.9rem;
     }
   }
   .fa-plus-circle {
@@ -94,16 +96,17 @@ form {
   li {
     flex: 1;
     background: white;
-    padding: 20px;
   }
   .completeBtn {
     @include checkDeleteButtons;
+    font-size: 1.3rem;
   }
   .fa-check {
     pointer-events: none;
   }
   .trashBtn {
     @include checkDeleteButtons;
+    font-size: 1.3rem;
   }
   .fa-trash {
     pointer-events: none;
