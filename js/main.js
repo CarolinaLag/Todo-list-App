@@ -1,6 +1,5 @@
 class Todo {
   constructor(name) {
-    // this.id = id;
     this.name = name;
     this.completed = false;
   }
@@ -12,54 +11,48 @@ let doneTodos = [];
 window.onload = function () {
   sortBtn.addEventListener("click", sortTodos);
 
-  let todo = new Todo("handla");
-  todos.push(todo);
-
   document.getElementById("button").addEventListener("click", addTodo);
   createHTML();
   createRestoreList();
-  // getFromLocalStorage();
+  getFromLocalStorage();
+  getDoneFromLocalStorage();
 };
 
 function addTodo() {
   let todoInput = document.getElementById("todoInput").value;
   let newTodo = new Todo(todoInput);
 
+  if (todoInput == "") {
+    return false;
+  }
   todos.push(newTodo);
-  // addToLocalStorage(todos);
-  // addToLocalStorage(doneTodos);
-
-  //   todoInput.value = "";
+  addToLocalStorage(todos);
   document.getElementById("todoInput").value = "";
-
   createHTML();
 }
 
 function createHTML() {
   let list = document.getElementById("toDoList");
 
-  list.innerHTML = ""; //resetting the list
+  list.innerHTML = "";
 
   for (let i = 0; i < todos.length; i++) {
-    //Create todo DIV
     let todoDiv = document.createElement("div");
     todoDiv.className = "todo";
     list.appendChild(todoDiv);
 
-    //Create li
     if (todos[i].completed == false) {
       let li = document.createElement("li");
       li.className = "todo-item";
       todoDiv.appendChild(li);
       li.appendChild(document.createTextNode(todos[i].name));
 
-      //Create Check Marked Button
       let completedButton = document.createElement("button");
       completedButton.innerHTML = '<i class="fas fa-check"></i>';
       completedButton.className = "completeBtn";
 
       todoDiv.appendChild(completedButton);
-      //Create Check Trash Button
+
       let trashButton = document.createElement("button");
       trashButton.innerHTML = '<i class="fas fa-trash"></i>';
       trashButton.type = "button";
@@ -82,7 +75,7 @@ function deleteTodo(todo) {
       todos.splice(i, 1);
     }
     createHTML();
-    // addToLocalStorage(todos);
+    addToLocalStorage(todos);
   }
 }
 function deleteDoneTodo(todo) {
@@ -92,7 +85,7 @@ function deleteDoneTodo(todo) {
     }
     createRestoreList();
 
-    // addToLocalStorage(doneTodos);
+    addDoneToLocalStorage(doneTodos);
   }
 }
 
@@ -111,8 +104,8 @@ function doneTodo(todo) {
     }
   createHTML();
   createRestoreList();
-  // addToLocalStorage(todos);
-  // addToLocalStorage(doneTodos);
+  addToLocalStorage(todos);
+  addDoneToLocalStorage(doneTodos);
 }
 
 function doneToNotDone(todo) {
@@ -123,8 +116,7 @@ function doneToNotDone(todo) {
       doneTodos.splice(i, 1);
       createHTML();
       createRestoreList();
-      // addToLocalStorage(todos);
-      // addToLocalStorage(doneTodos);
+      addDoneToLocalStorage(doneTodos);
     }
   }
 }
@@ -132,28 +124,25 @@ function doneToNotDone(todo) {
 function createRestoreList() {
   let restoreList = document.getElementById("restoreList");
 
-  restoreList.innerHTML = ""; //resetting the list
+  restoreList.innerHTML = "";
 
   for (let i = 0; i < doneTodos.length; i++) {
-    //Create todo DIV
     let todoDiv = document.createElement("div");
     todoDiv.className = "todo";
     restoreList.appendChild(todoDiv);
 
-    //Create li
     if (doneTodos[i].completed == true) {
       let li = document.createElement("li");
       li.className = "todo-item";
       todoDiv.appendChild(li);
       li.appendChild(document.createTextNode(doneTodos[i].name));
 
-      //Create Check Marked Button
       let completedButton = document.createElement("button");
       completedButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
       completedButton.className = "completeBtn";
 
       todoDiv.appendChild(completedButton);
-      //Create Check Trash Button
+
       let trashButton = document.createElement("button");
       trashButton.innerHTML = '<i class="fas fa-trash"></i>';
       trashButton.type = "button";
@@ -185,22 +174,28 @@ function sortTodos() {
   createHTML();
 }
 
-// function addToLocalStorage(todos) {
-//   localStorage.setItem("todos", JSON.stringify(todos));
-//   // localStorage.setItem("doneTodos", JSON.stringify(doneTodos));
-//   createHTML(todos);
-//   // createRestoreList(doneTodos);
-// }
+function addToLocalStorage(todos) {
+  localStorage.setItem("todos", JSON.stringify(todos));
+  createHTML(todos);
+}
 
-// function getFromLocalStorage() {
-//   let todoFromLS = localStorage.getItem("todos");
-//   // let doneTodoFromLS = localStorage.getItem("doneTodos");
-//   if (todoFromLS) {
-//     todos = JSON.parse(todoFromLS);
-//     createHTML(todos);
-//   }
-//   // if (doneTodoFromLS) {
-//   //   doneTodos = JSON.parse(doneTodoFromLS);
-//   //   createHTML(doneTodos);
-//   // }
-// }
+function addDoneToLocalStorage(doneTodos) {
+  localStorage.setItem("doneTodos", JSON.stringify(doneTodos));
+  createRestoreList(doneTodos);
+}
+
+function getFromLocalStorage() {
+  let todoFromLS = localStorage.getItem("todos");
+  if (todoFromLS) {
+    todos = JSON.parse(todoFromLS);
+    createHTML(todos);
+  }
+}
+
+function getDoneFromLocalStorage() {
+  let doneTodoFromLS = localStorage.getItem("doneTodos");
+  if (doneTodoFromLS) {
+    doneTodos = JSON.parse(doneTodoFromLS);
+    createRestoreList(doneTodos);
+  }
+}
