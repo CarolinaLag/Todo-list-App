@@ -23,7 +23,7 @@ header {
   }
 }
 
-form {
+.todoForm {
   min-height: 10vh;
   @include flexCenter;
   #todoInput {
