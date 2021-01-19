@@ -2,7 +2,7 @@
 
 _A todo-list made with Javascript as a school assignment, focused on vanilla js_
 
-Examples of functionality of the todo-list:
+Examples of functionalities of the todo-list:
 
 - Add a new todo
 - Remove todo
