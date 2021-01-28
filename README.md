@@ -18,7 +18,6 @@ Make a new folder
 
 1. Clone repo and start 'index.html'
 2. run npm install
-3. run npm start
 
 ## Naming conventions
 
@@ -27,7 +26,7 @@ Make a new folder
 - Use let instead of var
 - When naming variables use **camelCase**
 
-* Eg `let newTodo = new Todo(todoInput);`
+* Eg `let newTodo = new Todo(todoInput)`
 
 ### Functions
 
@@ -36,7 +35,7 @@ Make a new folder
 ### Classes
 
 - Class names should use **PascalCase**
-- Eg ´class Todo´
+- Eg `class Todo`
 
 ## Project structure
 
